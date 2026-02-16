@@ -10,9 +10,10 @@ TODO
   ----
 """
 
-import json  # 
+import json 
 from json import JSONDecodeError
 # jsonDecodeError is part of json module used working with json files
+
 import string   # module holding add characters
 import secrets  # generator
 
@@ -20,8 +21,8 @@ import secrets  # generator
 def main():
     
     
-    ou = user_signup()
-    print(ou)
+    out = user_main()
+    print(out)
 
 
 def password_generator():
@@ -46,6 +47,7 @@ def password_generator():
             continue
     
     password = ''.join(secrets.choice(all_characters)for _ in range(length))
+    print(f"Generated Password: {password} \nsave your password")
     return password
     
 
@@ -53,6 +55,7 @@ def password_generator():
 
 
 def user_signup():
+    print(f"\n{"*"*10} SIGN UP HERE {"*"*10} \n")
     
     first_name = input("enter first name: \n" ).strip().title()
     middle_name = input( "enter middle name: \npress 'enter-key' to skip\n" ).strip().title()
@@ -62,16 +65,15 @@ def user_signup():
 
     # Phone Number MUST be 10 and valid 
     
-    try:
-        phone_number = int(input("enter phone number:\n"))
-        if len(phone_number) == 10:
-            phone_number
-            
-        else:
-            print("number should be 10")
-            
-    except (TypeError, ValueError, UnboundLocalError):
-        print("enter correct ")
+    while True:
+        try:
+            phone_number = int(input("enter phone number:+233 \n"))
+            phone_number = f"0{phone_number}" 
+            break
+        except (TypeError, ValueError, UnboundLocalError):
+            print("invalid input")
+            continue
+    
             
 
     email = input ("enter email: \n").strip().lower()
@@ -122,11 +124,16 @@ def user_signup():
 #save the file back
     with open("config.json", "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
+    
+    return data_input
+
+
+    
 
 
 # front logic
 def user_main():
-    message = input(f"\n{"="*5} welcome to Logcast {"="*5} \nSELECT OPTION\n1: sign Up \n2: Login \n3: Generate Password \npress 'n' to exit program").strip()
+    message = input(f"\n{"="*5} welcome to Logcast {"="*5} \nSELECT OPTION\n1: sign Up \n2: Login \n3: Generate Password \npress 'n' to exit program\n").strip()
     
     match message:
         case 'n' | "N":
