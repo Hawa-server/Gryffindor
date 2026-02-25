@@ -159,11 +159,11 @@ def load_file_for_view():
             print(f"- {txt}")
    
 
-    ask_user = input("enter text file: \n")
+    ask_user_file = input("enter text file: \n")
     path_check = os.listdir()
 
-    if ask_user in path_check:
-        with open(ask_user, "r", encoding="utf-8") as file:
+    if ask_user_file in path_check:
+        with open(ask_user_file, "r", encoding="utf-8") as file:
             read_file = file.read()
             print(read_file)
     else:
