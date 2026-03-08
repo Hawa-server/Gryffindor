@@ -1,16 +1,18 @@
-from PIL import Image, ImageEnhance
+from PIL import Image, ImageEnhance, I
 from os import path
 
 
 def main():
 
-    frames = []
+    # frames = []
 
-    gif_file = gif_creater(frames)
-    print(gif_file)
+    gif_file = gif_creater()
+    # print(gif_file)
 
 def open_image():
     load_image = path.join("files", "a.JPG")
+    load_image2 = path.join("files", "b.JPG")
+
 
     image = Image.open(load_image)
 
@@ -35,3 +37,12 @@ def gif_creater(frames):
 
 if __name__ == "__main__":
     main()
+
+
+
+load_image = path.join("files", "a.JPG")
+load_image2 = path.join("files", "b.JPG")
+
+Image
+
+

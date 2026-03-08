@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify,Response
 from json import JSONDecodeError
 import json
 
@@ -35,7 +35,7 @@ def save_file(data):
 
 @app.route("/")
 def index():
-    return jsonify({"BackEnd Server": "server is working"})
+    return {"BackEnd Server": "server is working"}
 
 
 
@@ -43,8 +43,7 @@ def index():
 def get_all_channel():
     data = load_file()
     all_channel = data["tv"] + data["radio"]
-    return jsonify(all_channel)
-
+    return Response.json ("data":all_channel)
 
 @app.route("/api/channels/tv", methods = ["GET"])
 def get_all_tv_channel():

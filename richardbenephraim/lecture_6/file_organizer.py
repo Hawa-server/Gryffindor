@@ -15,7 +15,7 @@ def main():
 
 
     out = program_main_logic()
-    print(out)
+    print(out)-1
 
 
 
